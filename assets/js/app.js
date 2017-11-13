@@ -1,22 +1,29 @@
-(function() {
-	//variables
-	var list = document.getElementById("list"),
-		taskInput = document.getElementById("taskInput"),
-		btnNewTask = document.getElementById("btn-add");
+function addList() {
+	//declaracion de variables
+	var form = document.getElementById('form');
+	var input = document.createElement('input');
+	var btn = document.createElement('button');
+	var nodoText = document.createTextNode('Guardar');
 
-	//funciones
-	var addTask = function() {};
+	//atributos
+	input.setAttribute('id','input');
 
-	//eventos
+	//creando nodos
+	btn.appendChild(nodoText);
+	form.appendChild(input);
+	form.appendChild(btn);
 
-	//agregar tarea
-	btnNewTask.addEventListener("click", addTask);
+	//titulo de lista
+btn.addEventListener('click', function() {
+	var list = document.getElementById('input').value;
+	document.getElementById('input').value = "";
+	var form = document.getElementById('form');
+	var title = document.createElement('p');
+	var textTitle = document.createTextNode('input');
 
-	//comprobar input
+	//agregando nodo titulo
+	title.appendChild(textTitle);
+	form.appendChild(title);
+})
 
-	//borrar elementos de una lista
-	/*for (var i = 0; i < list.children.length -1; i++) {
-		list.children[i].addEventListener("click", removeTask);
-	}*/
-
-}());
+}
