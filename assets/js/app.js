@@ -1,29 +1,47 @@
 function addList() {
 	//declaracion de variables
-	var form = document.getElementById('form');
+	var container = document.getElementById('container');
 	var input = document.createElement('input');
 	var btn = document.createElement('button');
 	var nodoText = document.createTextNode('Guardar');
 
 	//atributos
-	input.setAttribute('id','input');
+	input.setAttribute('id','text');
 
 	//creando nodos
 	btn.appendChild(nodoText);
-	form.appendChild(input);
-	form.appendChild(btn);
+	container.appendChild(input);
+	container.appendChild(btn);
 
-	//titulo de lista
+	//evento titulo de lista
 btn.addEventListener('click', function() {
-	var list = document.getElementById('input').value;
-	document.getElementById('input').value = "";
+	var list = document.getElementById('text').value;
+	document.getElementById('text').value = "";
+
+	//variables
 	var form = document.getElementById('form');
-	var title = document.createElement('p');
-	var textTitle = document.createTextNode('input');
+	var paragraph = document.createElement('p');
+	var newText = document.createTextNode(list);
+	var add = document.createElement('a');
+	add.setAttribute('href', '#');
+	var textAdd = document.createTextNode('Agregar tarjeta');
 
 	//agregando nodo titulo
-	title.appendChild(textTitle);
-	form.appendChild(title);
-})
+	paragraph.appendChild(newText);
+	form.appendChild(paragraph);
+	add.appendChild(textAdd);
+	form.appendChild(add);
 
+	//evento agregar tarjeta
+add.addEventListener('click', function() {
+	var textArea = document.createElement('textarea');
+	var add = document.createElement('a');
+	add.setAttribute('href', '#');
+	var textAdd = document.createTextNode('Agregar tarjeta');
+	//nodos
+	add.appendChild(textAdd);
+	form.appendChild(textArea);
+	form.appendChild(add);
+})
+})
 }
